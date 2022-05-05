@@ -12,7 +12,7 @@ function getFromSWAPI() {
         return response.json()
     })
     .then(function(data){
-        updateInfo(data)
+        updateInfo(data, queryType)
     })
     .catch(function(err) {
         console.warn(err)
@@ -29,15 +29,29 @@ function fetchData()
 {
     queryType = document.querySelector("#queryType").value;
     itemID = document.querySelector("#itemID").value;
-    getFromSWAPI();
+    getFromSWAPI(queryType, itemID);
 
 
 }
 
 function updateInfo(data)
 {
+    if (queryType == "people"){
     document.querySelector("#dataLabel1").textContent = `Person Name:`;
     document.querySelector("#dataValue1").textContent = `${data.name}`;
     document.querySelector("#dataLabel2").textContent = `Hair Color:`;
-    document.querySelector("#dataValue2").textContent = `${data.color}`;
+    document.querySelector("#dataValue2").textContent = `${data.hair_color}`;
+}
+else if (queryType == "planets"){
+    document.querySelector("#dataLabel1").textContent = `Planet Name:`;
+    document.querySelector("#dataValue1").textContent = `${data.name}`;
+    document.querySelector("#dataLabel2").textContent = `population:`;
+    document.querySelector("#dataValue2").textContent = `${data.population}`;
+}
+else if (queryType == "starships"){
+    document.querySelector("#dataLabel1").textContent = `starship Name:`;
+    document.querySelector("#dataValue1").textContent = `${data.name}`;
+    document.querySelector("#dataLabel2").textContent = `length:`;
+    document.querySelector("#dataValue2").textContent = `${data.length}`;
+}
 }
