@@ -1,8 +1,21 @@
 // declare each of the variables marked with "**" in the appropriate scope and using the appropriate type
-
+let mean =0;
+let gradeSlice = 0;
 // create an event listener that calls the curveGrade() function when the Curve It!! button is clicked
+var submitBtn = document.querySelector('#submit')
+submitBtn.addEventListener("click", curveGrades)
 
 // create an event listener that resets the scores and grades to their defaults when the Reset button is clicked
+
+var resetBtn = document.querySelector('#reset')
+resetBtn.addEventListener("click",()=>{
+    var divGrade = document.querySelector('#grades') 
+    divGrade.textContent = ("Curved Grades Show Here")
+    var input = document.querySelector('#scores')
+    input.value = ("")
+
+})
+
 
 function applyBell(grade, index, ary) {
     switch (true) {
@@ -38,31 +51,30 @@ function convertArray(obj) {
 // empty lines, can you get the number of lines down to 8?
 
 function curveGrades() {
-    **sum = function (accumulator, currentValue) {
-        return accumulator + currentValue
-    }
-
-    **sumGrades = function(array) {
-        return array.reduce(sum)
-    }
-
-    **aryGrades = convertArray(document.querySelector('#scores'))
-
-    **minGrade = aryGrades.reduce(function(a, b) {
-        return Math.min(a, b)
-    })
+    const sum = (accumulator, currentValue) => accumulator + currentValue
     
-    **maxGrade = aryGrades.reduce(function(a, b) {
-        return Math.max(a, b)
-    })
+
+    const sumGrades = array => array.reduce(sum)
     
-    **mean = sumGrades(aryGrades) / aryGrades.length
 
-    **range = maxGrade - minGrade
+    let aryGrades = convertArray(document.querySelector('#scores'))
 
-    gradeSlice = range / 5
+    const minGrade = aryGrades.reduce((a, b) => Math.min(a, b))
+    
+    
+    const maxGrade = aryGrades.reduce( (a, b) => Math.max(a, b))
+    
+    
+     mean = sumGrades(aryGrades) / aryGrades.length
 
+   //66,72,100,88,92,74,72,94,80,78
+
+    gradeSlice = (maxGrade - minGrade) / 5
+ console.log(aryGrades)
     aryGrades.forEach(applyBell)
 
     // write the value of aryGrades to the grades div in the HTML document
+
+    var divGrade = document.querySelector('#grades') 
+    divGrade.textContent = aryGrades
 }
