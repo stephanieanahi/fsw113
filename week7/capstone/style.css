@@ -4,8 +4,12 @@
     bug reports display in three columns (see week 4).
 */
 
-
-* {
-    background-image: url(images/wallpaper.jpg);
+.reportWrapper{
+    display: inline-grid;
+    grid-template-columns: (3, 1fr);
+    color: white;
+    background-color: red;
+   
 }
+
 

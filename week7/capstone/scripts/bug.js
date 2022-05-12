@@ -9,7 +9,7 @@ class Bug {
     addBug() {
         // Create a div element that displays the bug information input by the user within the "listWrapper" DOM element. 
         // It should also contain buttons whose onClick events will call the deleteBug() and resolveBug() methods (see below). 
-
+     
     }
 
     deleteBug() {
