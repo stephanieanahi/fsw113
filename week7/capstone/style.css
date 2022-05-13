@@ -74,10 +74,10 @@ html {
     border-radius: 5px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border: 2px solid white;
     width: 50%;
     margin: auto;
     margin-top: 0px;
+    
   
    
 }
